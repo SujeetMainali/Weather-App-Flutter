@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class AdditionalInformation extends StatefulWidget {
@@ -22,9 +23,9 @@ class _AdditionalInformationState extends State<AdditionalInformation> {
         ),
         Row(
           children: [
-            AdditionalInformationCard(),
-            AdditionalInformationCard(),
-            AdditionalInformationCard()
+            AdditionalInformationCard(iconData:Icons.water_drop_rounded,condition: "Humidity", conditionMeasure: "94", ),
+            AdditionalInformationCard(iconData: Icons.air, condition: "Wind Speed", conditionMeasure: "7.67",),
+            AdditionalInformationCard(iconData: CupertinoIcons.cloud_rain_fill, condition: "Raining", conditionMeasure: "7.67mm",)
           ],
         )
       ],
@@ -33,27 +34,30 @@ class _AdditionalInformationState extends State<AdditionalInformation> {
 }
 
 class AdditionalInformationCard extends StatelessWidget {
-  const AdditionalInformationCard({super.key});
+   final IconData iconData;
+  final String condition;
+  final String conditionMeasure;
+  const AdditionalInformationCard({super.key,  required this.iconData, required this.condition, required this.conditionMeasure});
 
   @override
   Widget build(BuildContext context) {
-    return const SizedBox(
+    return  SizedBox(
       width: 120,
       child: Column(
         children: [
           Icon(
-            Icons.water_drop_rounded,
+            iconData,
             size: 48,
           ),
-          SizedBox(height: 8,),
+         const  SizedBox(height: 8,),
           Text(
-            "Humidity",
-            style: TextStyle(fontSize: 16),
+            condition,
+            style: const TextStyle(fontSize: 16),
           ),
-          SizedBox(height: 8,),
+         const  SizedBox(height: 8,),
           Text(
-            "94",
-            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+          conditionMeasure,
+            style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
           )
         ],
       ),
