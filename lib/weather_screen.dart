@@ -16,16 +16,28 @@ class WeatherScreen extends StatelessWidget {
         ),
         centerTitle: true,
         actions: [
-          IconButton(onPressed: (){
-            debugPrint("refresh");
-          }, icon: const Icon(Icons.refresh))
+          IconButton(
+              onPressed: () {
+                debugPrint("refresh");
+              },
+              icon: const Icon(Icons.refresh))
         ],
       ),
       body: const Padding(
-        padding:  EdgeInsets.all(16.0),
-        child:  Column(
+        padding: EdgeInsets.all(16.0),
+        child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: [WeatherStatus(), WeatherForecast(), AdditionalInformation()],
+          children: [
+            WeatherStatus(),
+            SizedBox(
+              height: 20,
+            ),
+            WeatherForecast(),
+            SizedBox(
+              height: 20,
+            ),
+            AdditionalInformation()
+          ],
         ),
       ),
     );
