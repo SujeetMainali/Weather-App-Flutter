@@ -22,6 +22,7 @@ class _AdditionalInformationState extends State<AdditionalInformation> {
           height: 10,
         ),
         Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             AdditionalInformationCard(iconData:Icons.water_drop_rounded,condition: "Humidity", conditionMeasure: "94", ),
             AdditionalInformationCard(iconData: Icons.air, condition: "Wind Speed", conditionMeasure: "7.67",),
@@ -44,17 +45,18 @@ class AdditionalInformationCard extends StatelessWidget {
     return  SizedBox(
       width: 120,
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Icon(
             iconData,
             size: 48,
           ),
-         const  SizedBox(height: 8,),
+        //  const  SizedBox(height: 8,),
           Text(
             condition,
             style: const TextStyle(fontSize: 16),
           ),
-         const  SizedBox(height: 8,),
+        //  const  SizedBox(height: 8,),
           Text(
           conditionMeasure,
             style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
