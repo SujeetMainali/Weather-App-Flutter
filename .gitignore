@@ -43,5 +43,5 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 
-./lib/Components/secrets.dart
+/lib/Components/secrets.dart
 git 
